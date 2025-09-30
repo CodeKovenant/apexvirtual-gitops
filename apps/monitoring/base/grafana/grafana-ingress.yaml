@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`grafana.lab.apexvirtual.dev`)
+    - match: Host(`grafana.lab.apexvirtual.internal`)
       kind: Rule
       services:
         - name: grafana
