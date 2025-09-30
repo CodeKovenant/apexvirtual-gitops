@@ -5,7 +5,7 @@
 [![Traefik](https://img.shields.io/badge/Traefik-Ingress-24A1C1?logo=traefikproxy&logoColor=white)](https://traefik.io)
 [![Cert Manager](https://img.shields.io/badge/Cert--Manager-Enabled-326CE5?logo=letsencrypt&logoColor=white)](https://cert-manager.io)
 
-# ApexVirtual GitOps 🚀
+# ApexVirtual GitOps
 
 Production-grade GitOps deployment patterns with **ArgoCD**, demonstrating multi-cluster Kubernetes management, sealed secrets, and declarative application orchestration.
 
