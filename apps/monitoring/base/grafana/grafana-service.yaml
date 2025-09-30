@@ -11,4 +11,4 @@ spec:
   - name: http
     port: 3000
     targetPort: http
-  loadBalancerIP:
+  # loadBalancerIP:  # Assigned by LoadBalancer

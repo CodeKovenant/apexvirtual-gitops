@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       port: 9090
       targetPort: web
-  loadBalancerIP:
+  # loadBalancerIP:  # Assigned by LoadBalancer

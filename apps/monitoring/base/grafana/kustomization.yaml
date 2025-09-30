@@ -7,4 +7,4 @@ resources:
   - grafana-pvc.yaml
   - grafana-deployment.yaml
   - grafana-ingress.yaml
-  - dev-doubledawnfas-com-tls.yaml
+  - certificate.yaml

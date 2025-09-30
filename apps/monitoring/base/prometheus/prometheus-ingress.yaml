@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`prometheus.lab.apexvirtual.internal`))
+    - match: Host(`prometheus.lab.apexvirtual.internal`)
       kind: Rule
       services:
         - name: prometheus
