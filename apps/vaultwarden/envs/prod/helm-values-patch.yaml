@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vaultwarden
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: vaultwarden
+  sources:
+    - chart: vaultwarden
+      repoURL: https://guerzon.github.io/vaultwarden
+      targetRevision: "0.34.3"
+      helm:
+        values: |
+          image:
+            tag: "1.34.1"
+          domain: "https://vault.lab.apexvirtual.internal"
+          database:
+            type: "default"
+          adminToken:
+            existingSecret: "vaultwarden-admin-token"
+            existingSecretKey: "ADMIN_TOKEN"
+          timeZone: "UTC"
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          storage:
+            existingVolumeClaim:
+              claimName: "vaultwarden-data"
+            dataPath: "/data"
+            attachmentsPath: "/data/attachments"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: monitoring
+resources:
+  - grafana-serviceAccount.yaml
+  - grafana-service.yaml
+  - grafana-pvc.yaml
+  - grafana-deployment.yaml
+  - grafana-ingress.yaml
+  - dev-doubledawnfas-com-tls.yaml

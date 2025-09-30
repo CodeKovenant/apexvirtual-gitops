@@ -1,0 +1,17 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: dev-doubledawnfas-com
+  namespace: monitoring
+  annotations:
+    argocd.argoproj.io/sync-wave: "6"
+spec:
+  secretName: dev-doubledawnfas-com-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: "*.dev.doubledawnfas.com"
+  dnsNames:
+  - "dev.doubledawnfas.com"
+  - "*.dev.doubledawnfas.com"

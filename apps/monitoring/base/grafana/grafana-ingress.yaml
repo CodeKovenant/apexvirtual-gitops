@@ -1,0 +1,22 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: grafana-dashboard
+  namespace: monitoring
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`grafana.lab.apexvirtual.dev`)
+      kind: Rule
+      services:
+        - name: grafana
+          port: 3000
+          namespace: monitoring 
+      middlewares:
+        - name: default-headers 
+          namespace: kube-system
+  tls:
+    secretName: tls-secret

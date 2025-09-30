@@ -1,0 +1,21 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: vaultwarden-external
+  namespace: vaultwarden
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`vault.lab.apexvirtual.internal`)
+      kind: Rule
+      services:
+        - name: vaultwarden
+          port: http
+      middlewares:
+        - name: default-headers
+          namespace: traefik
+  tls:
+    secretName: vaultwarden-tls

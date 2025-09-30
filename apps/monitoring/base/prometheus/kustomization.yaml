@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - prometheus-rbac-role-binding.yaml
+  - prometheus-rbac-clusterrole.yaml
+  - prometheus-service-local.yaml
+  - prometheus-service-ext.yaml
+  - prometheus.yaml
+  - prometheus-serviceacount.yaml
+  - prometheus-ingress.yaml

@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: homepage
+  namespace: argocd  #  ArgoCD's namespace
+spec:
+  project: default # Or your custom ArgoCD project
+  source:
+    repoURL: 'https://github.com/foxtrot989/argocd.git'  #  **REPLACE THIS** with your Git repo URL
+    path: argocd/apps/homepage/envs/horizon-mountain
+    targetRevision: HEAD  # Or a specific branch/tag
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: homepage # This should exist or be created by your kustomization.
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

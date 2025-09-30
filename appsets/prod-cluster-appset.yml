@@ -1,0 +1,45 @@
+# appsets/prod-cluster-appset.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: prod-cluster-appset
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - git:
+      repoURL: https://github.com/fashomelab/apexvirtual-gitops.git
+      revision: HEAD
+      directories:
+      - path: apps/*/envs/prod
+  template:
+    metadata:
+      name: '{{index .path.segments 1}}-prod'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/fashomelab/apexvirtual-gitops.git
+        targetRevision: HEAD
+        path: '{{.path.path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{index .path.segments 1}}'
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+          - ServerSideApply=true
+        automated:
+          prune: true
+          selfHeal: true
+      ignoreDifferences:
+      - group: apiextensions.k8s.io
+        kind: CustomResourceDefinition
+        name: engineimages.longhorn.io
+        jsonPointers:
+        - /spec/preserveUnknownFields
+      - group: apiextensions.k8s.io
+        kind: CustomResourceDefinition
+        name: volumes.longhorn.io
+        jsonPointers:
+        - /spec/preserveUnknownFields

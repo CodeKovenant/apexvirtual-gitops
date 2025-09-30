@@ -1,0 +1,40 @@
+# appsets/dev-cluster-appset.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: dev-cluster-appset
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - git:
+      repoURL: https://github.com/fashomelab/apexvirtual-gitops.git
+      revision: HEAD
+      directories:
+      - path: apps/*/envs/dev
+  template:
+    metadata:
+      name: '{{index .path.segments 1}}-dev'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/fashomelab/apexvirtual-gitops.git
+        targetRevision: HEAD
+        path: '{{.path.path}}'
+      destination:
+        server: https://dev-cluster.lab.apexvirtual.internal:6443
+        namespace: '{{index .path.segments 1}}'
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+          - ServerSideApply=true
+        automated:
+          prune: true
+          selfHeal: true
+      ignoreDifferences:
+      - group: apiextensions.k8s.io
+        kind: CustomResourceDefinition
+        name: engineimages.longhorn.io
+        jsonPointers:
+        - /spec/preserveUnknownFields

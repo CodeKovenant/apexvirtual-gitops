@@ -1,0 +1,13 @@
+
+*.pem
+
+apps/cert-manager/envs/zero-dawn/secret-cf-token.yaml
+apps/arc-systems/envs/zero-dawn/secret-controller-manager.yaml
+apps/sealed-secret/envs/*/secret-*
+apps/traefik/envs/horizon-mountain/values-traefik.yaml
+apps/homepage/envs/*/secret-*
+# Ignore downloaded Helm charts within app environments
+apps/*/envs/*/charts/
+
+# Ignore vault files for now
+apps/vault/*
