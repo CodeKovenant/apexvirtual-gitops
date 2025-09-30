@@ -1,3 +1,10 @@
+[![ArgoCD](https://img.shields.io/badge/ArgoCD-ApplicationSets-EF7B4D?logo=argo&logoColor=white)](https://argo-cd.readthedocs.io)
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-v1.28+-326CE5?logo=kubernetes&logoColor=white)](https://kubernetes.io)
+[![Kustomize](https://img.shields.io/badge/Kustomize-Overlays-326CE5?logo=kubernetes&logoColor=white)](https://kustomize.io)
+[![Helm](https://img.shields.io/badge/Helm-v3-0F1689?logo=helm&logoColor=white)](https://helm.sh)
+[![Traefik](https://img.shields.io/badge/Traefik-Ingress-24A1C1?logo=traefikproxy&logoColor=white)](https://traefik.io)
+[![Cert Manager](https://img.shields.io/badge/Cert--Manager-Enabled-326CE5?logo=letsencrypt&logoColor=white)](https://cert-manager.io)
+
 # ApexVirtual GitOps 🚀
 
 Production-grade GitOps deployment patterns with **ArgoCD**, demonstrating multi-cluster Kubernetes management, sealed secrets, and declarative application orchestration.
